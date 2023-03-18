@@ -5,6 +5,7 @@ import { getAllFriends, getSingleUser } from '../axios';
 import { useInfiniteScroll } from '../hooks/useInfiniteScroll';
 import User from '../components/User/User';
 import { device } from '../mediaQueries';
+import Loader from '../components/Loader';
 
 const UserDetail = () => {
   const [user, setUser] = useState<any>();
@@ -30,6 +31,8 @@ const UserDetail = () => {
     if (!newCurrentPageName.has(currentPage)) {
       setCurrentPageName([...newCurrentPageName, currentPage]);
     }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [user?.name]);
 
   const handleNavigate = (userName: string) => {
@@ -110,8 +113,16 @@ const UserDetail = () => {
               <User key={`${index}-${item.name}`} user={item} />
             )
           )}
-          {!hasMore && <div>No more users</div>}
-          {isLoading && <div>Loading...</div>}
+
+          {isLoading && (
+            <div
+              style={{
+                gridColumn: '1 / -1',
+              }}
+            >
+              <Loader />
+            </div>
+          )}
         </Wrapper>
       </FirendsWrapper>
     </>

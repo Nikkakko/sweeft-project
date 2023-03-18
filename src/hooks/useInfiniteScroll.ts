@@ -46,6 +46,8 @@ export function useInfiniteScroll(
       }, 1500);
 
       if (pagination?.current === pagination?.total) setHasMore(true);
+
+      //scroll top top of page
     };
 
     fetchMoreData();
