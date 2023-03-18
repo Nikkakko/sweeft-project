@@ -9,8 +9,8 @@ const instance = axios.create({
   },
 });
 
-export const getAllUsers = async (page: number, size: number, options = {}) => {
-  return await instance.get(`user/${page}/${size}`, options);
+export const getAllUsers = async (page: number, size: number) => {
+  return await instance.get(`user/${page}/${size}`);
 };
 
 export const getAllFriends = async (
