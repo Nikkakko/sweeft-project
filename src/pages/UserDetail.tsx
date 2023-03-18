@@ -9,6 +9,7 @@ import Loader from '../components/Loader';
 
 const UserDetail = () => {
   const [user, setUser] = useState<any>();
+  const [newItems, setNewItems] = useState<any>([]);
   const [currentPageName, setCurrentPageName] = useState<string[]>([]);
   const { id } = useParams<{ id: string }>();
   const idNumber = Number(id);
@@ -36,8 +37,9 @@ const UserDetail = () => {
   }, [user?.name]);
 
   const handleNavigate = (userName: string) => {
-    const index = items.findIndex(item => item.name === userName);
-    navigate(`/user/${items[index].id}`);
+    const findName = items.find(item => item.name === userName);
+
+    navigate(`/user/${findName?.id}`);
   };
 
   return (
