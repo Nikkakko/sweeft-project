@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL =
+  'http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/';
 
 const instance = axios.create({
   baseURL: BASE_URL,
