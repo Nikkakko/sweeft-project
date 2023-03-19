@@ -45,7 +45,7 @@ const UserDetail = () => {
   return (
     <>
       <Container>
-        <Image src={user?.imageUrl} />
+        <Image src={`${user.imageUrl}?v=${user.id}`} />
         <InfoWrapper>
           <Info>
             <Name> {`${user?.prefix} ${user?.name} ${user?.lastName}`} </Name>
