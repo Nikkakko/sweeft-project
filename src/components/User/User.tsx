@@ -19,7 +19,7 @@ const User = ({ user }: Props, ref: any) => {
     <>
       <Container onClick={handleClick}>
         <ImageContainer>
-          <Image src={imageUrl} />
+          <Image src={`${user.imageUrl}?v=${user.id}`} />
         </ImageContainer>
         <Content>
           <Name> {`${prefix} ${name} ${lastName}`} </Name>
